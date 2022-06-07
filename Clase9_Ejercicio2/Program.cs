@@ -1,91 +1,292 @@
-﻿//Con los conocimientos vistos hasta ahora en clase realizar un programa que haga lo siguiente:
-
-//Generar un programa que cree un cartón de bingo aleatorio y lo muestre por pantalla
-
-//1)    Cartón de 3 filas por 9 columnas
-//2)    El cartón debe tener 15 números y 12 espacios en blanco
-//3)    Cada fila debe tener 5 números
-//4)    Cada columna debe tener 1 o 2 números
-//5)    Ningún número puede repetirse
-//6)    La primer columna contiene los números del 1 al 9, la segunda del 10 al 19, la tercera del 20 al 29, así sucesivamente hasta la última columna la cual contiene del 80 al 90
-//7)    Mostrar el carton por pantalla
-
-int fil =2;
-int col = 2;
-int[,] carton = new int[fil, col];
-Random rd = new Random();
-int contador =0;
-int aux1 = 0;
-int aux2 = 0;
-
-for (int columna = 0; columna < carton.Length; columna++)
-
-
+﻿int[,] carton = new int[3, 9];
+Random numero = new Random();
+int s = 0;
+do
 {
-    
-    for (int fila = 0; fila < carton.Length;fila++)
-
+    for (int i = 0; i < 3; i++)
     {
-        
-        if (columna == 0)
+        for (int j = 0; j < 9; j++)
         {
-            int num = rd.Next(1, 10);
-            Console.WriteLine("numero" + num);
-           
-            if (num >= 1 && num <= 9)
-            {                     
-                    
-                if (aux1 != num)
-                {
-                            
-                            
-                     if (contador < 2)
-                     {
-                        contador++;
-                        Console.WriteLine("primera columna  " + num);
-                        
-                     }
-                    
-                }
-               
-                aux1 = num;
-
-            }
-
-        }
-
-
-        
-        if (columna == 1 )
-        {
-            int num = rd.Next(10, 20);
-            Console.WriteLine("numero" + num);
-            if (num >= 10 && num <= 19)
+            if (j == 0)
             {
-                if (aux1 != num)
+                carton[i, j] = numero.Next(1, 10);
+            }
+            else if (j == 1)
+            {
+                carton[i, j] = numero.Next(10, 20);
+            }
+            else if (j == 2)
+            {
+                carton[i, j] = numero.Next(20, 30);
+            }
+            else if (j == 3)
+            {
+                carton[i, j] = numero.Next(30, 40);
+            }
+            else if (j == 4)
+            {
+                carton[i, j] = numero.Next(40, 50);
+            }
+            else if (j == 5)
+            {
+                carton[i, j] = numero.Next(50, 60);
+            }
+            else if (j == 6)
+            {
+                carton[i, j] = numero.Next(60, 70);
+            }
+            else if (j == 7)
+            {
+                carton[i, j] = numero.Next(70, 80);
+            }
+            else if (j == 8)
+            {
+                carton[i, j] = numero.Next(80, 90);
+            }
+        }
+    }
+    int aux0 = 0;
+    int aux1 = 0;
+    int aux2 = 0;
+    int aux3 = 0;
+    int aux4 = 0;
+    int aux5 = 0;
+    int aux6 = 0;
+    int aux7 = 0;
+    int aux8 = 0;
+    int cont0 = 0;
+    int cont1 = 0;
+    int cont2 = 0;
+    int cont3 = 0;
+    int cont4 = 0;
+    int cont5 = 0;
+    int cont6 = 0;
+    int cont7 = 0;
+    int cont8 = 0;
+
+    for (int i = 0; i < 3; i++)
+    {
+
+        for (int j = 0; j < 9; j++)
+        {
+            if (j == 0)
+            {
+                if (carton[i, j] != aux0)
                 {
-
-
-                    if (contador < 2)
+                    if (cont0 < 2)
                     {
-                        contador++;
-                        Console.WriteLine("segunda columna  " + num);
-                        
+                        Console.Write("\t\n\n " + carton[i, j]);
+                        aux0 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t\n\n " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t\n\n " + "X");
+                }
+                cont0++;
+            }
+            else if (j == 1)
+            {
+                if (carton[i, j] != aux1)
+                {
+                    if (cont1 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux1 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
                     }
 
                 }
-
-                aux1 = num;
-
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont1++;
             }
 
+            else if (j == 2)
+            {
+                if (carton[i, j] != aux2)
+                {
+                    if (cont2 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux2 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont2++;
+            }
+            else if (j == 3)
+            {
+                if (carton[i, j] != aux3)
+                {
+                    if (cont3 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux3 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont3++;
+            }
+            else if (j == 4)
+            {
+                if (carton[i, j] != aux4)
+                {
+                    if (cont4 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux4 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont4++;
+            }
+            else if (j == 5)
+            {
+                if (carton[i, j] != aux5)
+                {
+                    if (cont5 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux5 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont5++;
+            }
+            else if (j == 6)
+            {
+                if (carton[i, j] != aux6)
+                {
+                    if (cont6 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux6 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont6++;
+            }
+            else if (j == 7)
+            {
+                if (carton[i, j] != aux7)
+                {
+                    if (cont7 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux7 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont7++;
+            }
+            else if (j == 8)
+            {
+                if (carton[i, j] != aux8)
+                {
+                    if (cont8 < 2)
+                    {
+                        Console.Write("\t " + carton[i, j]);
+                        aux8 = carton[i, j];
+                    }
+                    else
+                    {
+                        Console.Write("\t " + "X");
+                    }
+                }
+                else
+                {
+                    Console.Write("\t " + "X");
+                }
+                cont8++;
+            }
         }
     }
-}
+    Console.WriteLine("\n");
+    Console.WriteLine("Desea otro carton precione 0 si no precione 1");
+    s = int.Parse(Console.ReadLine());
+} while (s != 1);
 
 
-//Console.WriteLine("=========================");
-//Console.WriteLine("+  " + aux1 + "    +    " + aux2 +         "       +     ");
-//Console.WriteLine("+  " + aux1 + "    +    " + aux2 +         "       +     ");
-//Console.WriteLine("+  " + aux1 + "    +    " + aux2 +         "       +     ");
-//Console.WriteLine("=========================");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
